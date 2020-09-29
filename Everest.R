@@ -28,6 +28,7 @@ expeditions %>%
         plot.background = element_rect(fill = "black"),
         panel.grid = element_blank())
 
+ggsave("climbing everest over the years.png")
 
 lm_data <- expeditions %>% 
   group_by(year, peak_name) %>% 
@@ -52,6 +53,8 @@ ggplot(aes(year, exp(log_number))) +
         plot.background = element_rect(fill = "black"),
         panel.grid = element_blank())
 
+ggsave("climbing everest over the years_lm.png")
+
 ##Staff deaths
 expeditions %>% 
   filter(peak_name == "Everest") %>% 
@@ -67,6 +70,9 @@ expeditions %>%
   theme(panel.background = element_rect(fill = "black"),
         plot.background = element_rect(fill = "black"),
         panel.grid = element_blank())
+
+ggsave("Staff_death.png")
+
 
 ##members deaths
 expeditions %>% 
@@ -84,6 +90,7 @@ expeditions %>%
         plot.background = element_rect(fill = "black"),
         panel.grid = element_blank())
 
+ggsave("Member_death.png")
 
 ## Total deaths
 
@@ -113,3 +120,6 @@ expeditions %>%
   annotate("text", x = 2010, y = 10, label = "On an average 1 in every 100 climbers died \n during everest expedition since 2000 ",
            col = "grey50", size = 3.5) +
   ggtitle("Proportion of deaths among climbers") + xlab("Period") + ylab("Proportion of deaths")
+
+
+ggsave("Total_death.png")
